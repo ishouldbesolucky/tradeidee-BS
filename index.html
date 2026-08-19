@@ -136,6 +136,7 @@
     box-shadow:0 24px 60px rgba(0,0,0,.35);
     margin-top:64px;
     display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
+    position:relative;
   }
   .lead-action .btn{width:100%;}
   .lead-card h3{margin:0 0 6px;font-size:20px;color:var(--ink);}
@@ -143,6 +144,26 @@
   .lead-benefits{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:10px;}
   .lead-benefits li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:var(--ink);}
   .lead-benefits svg{width:18px;height:18px;color:var(--green);flex-shrink:0;margin-top:2px;}
+
+  /* Getekende rode pijl van voordelen (links) naar formulier (rechts) */
+  .lead-arrow{
+    position:absolute;
+    left:52%;
+    top:55%;
+    transform:translate(-50%,-50%) rotate(-6deg);
+    width:95px;
+    height:72px;
+    pointer-events:none;
+    z-index:5;
+    filter:drop-shadow(0 3px 5px rgba(0,0,0,.4));
+  }
+  .lead-arrow path{
+    stroke:#e63946;
+    stroke-width:5.5;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    fill:none;
+  }
   .field{margin-bottom:14px;}
   .field input[type="email"], .field input[type="text"]{
     width:100%;padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.14);
@@ -179,6 +200,7 @@
   @media (max-width: 880px){
     .hero-grid{grid-template-columns:1fr;}
     .lead-card{grid-template-columns:1fr;margin-top:40px;padding:28px;}
+    .lead-arrow{display:none;}
     .cards-3, .steps, .stat-grid{grid-template-columns:1fr;}
     section{padding:56px 0;}
     .final-cta{margin:0 16px;padding:40px 20px;}
@@ -229,6 +251,16 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l4 4 14-14"/></svg> Dagelijkse beurssignalen & updates</li>
         </ul>
       </div>
+
+      <!-- Getekende rode pijl van voordelen naar formulier -->
+      <svg class="lead-arrow" viewBox="0 0 100 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Licht gebogen, handgetekende stijl -->
+        <path d="M8 38 C 28 18, 52 18, 72 36" stroke="#e63946" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+        <!-- Pijlpunt -->
+        <path d="M58 22 L78 36 L58 48" stroke="#e63946" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <!-- Lichte 'handgetekende' variatie op de lijn -->
+        <path d="M10 42 C 30 24, 50 24, 68 40" stroke="#e63946" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.55"/>
+      </svg>
 
       <div class="lead-action">
         <form id="leadForm" action="#" method="POST">
